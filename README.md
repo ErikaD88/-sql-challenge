@@ -7,6 +7,7 @@ This project models and analyzes a company’s employee database. The database i
 ## 1. Data Modeling
 
 To design the database, an Entity-Relationship Diagram (ERD) approach was used. Six tables (entities) were identified:
+    
     1.    employees
     2.    departments
     3.    salaries
@@ -15,6 +16,7 @@ To design the database, an Entity-Relationship Diagram (ERD) approach was used. 
     6.    dept_emp (department employees)
 
 Each table includes:
+   
     •    Attributes: Column names with appropriate data types.
     •    Primary Keys: For unique row identification.
     •    Foreign Keys: For establishing relationships between tables.
@@ -28,6 +30,7 @@ Employees_db_modeling.pdf
 ## 2. Data Engineering
 
 A detailed schema file was created to define:
+    
     •    Tables and their attributes.
     •    Primary keys and foreign keys for maintaining relationships.
     •    Constraints for data integrity.
@@ -38,6 +41,7 @@ Employees_db_schema.sql
 Table Import Order
 
 To maintain referential integrity, tables must be created and populated in the following order:
+    
     1.    titles
     2.    employees
     3.    departments
@@ -136,6 +140,7 @@ The analysis provided the following insights:
 ## 7. Setup Instructions
 
 To replicate the project:
+    
     1. Install PostgreSQL: PostgreSQL.org.
     2. Create the Database:
        CREATE DATABASE employees_db;
