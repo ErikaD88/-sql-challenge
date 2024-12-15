@@ -61,40 +61,40 @@ To load data into PostgreSQL from the provided CSV files, use the following comm
 After the data was successfully imported, SQL queries were executed to retrieve insights. The full query file is available here:
 Employees_db_Query.sql
 
-- List employee details with salaries
+List employee details with salaries
 
    SELECT e.emp_no, e.last_name, e.first_name, e.sex, s.salary
    FROM employees e
    JOIN salaries s ON e.emp_no = s.emp_no;
 
-- List first name, last name, and hire date for employees hired in 1986.  
+List first name, last name, and hire date for employees hired in 1986.  
    
     SELECT first_name, last_name, hire_date
     FROM employees
     WHERE EXTRACT(YEAR FROM hire_date) = 1986;
 
-- List the manager of each department, including department number, department name, manager’s employee number, last name, and first name.
+List the manager of each department, including department number, department name, manager’s employee number, last name, and first name.
 
     SELECT dm.dept_no, d.dept_name, e.emp_no, e.last_name, e.first_name
     FROM dept_manager dm
     JOIN employees e ON dm.emp_no = e.emp_no
     JOIN departments d ON dm.dept_no = d.dept_no;
 
-- List each employee’s department details, including employee number, last name, first name, and department name.
+List each employee’s department details, including employee number, last name, first name, and department name.
     
     SELECT dept_emp.emp_no, employees.last_name, employees.first_name, departments.dept_name
     FROM dept_emp
     JOIN employees ON dept_emp.emp_no = employees.emp_no
     JOIN departments ON dept_emp.dept_no = departments.dept_no;
 
-- List first name, last name, and sex for employees whose first name is “Hercules” and last names begin with “B”.
+List first name, last name, and sex for employees whose first name is “Hercules” and last names begin with “B”.
     
     SELECT first_name, last_name, sex
     FROM employees
     WHERE first_name = 'Hercules'
     AND last_name LIKE 'B%';
 
-- List all employees in the Sales department, including their employee number, last name, first name, and department name.
+List all employees in the Sales department, including their employee number, last name, first name, and department name.
 
     SELECT dept_emp.emp_no, employees.last_name, employees.first_name, departments.dept_name
     FROM dept_emp
@@ -102,7 +102,7 @@ Employees_db_Query.sql
     JOIN departments ON dept_emp.dept_no = departments.dept_no
     WHERE departments.dept_name = 'Sales';
 
-- List all employees in the Sales and Development departments, including their employee number, last name, first name, and department name.
+List all employees in the Sales and Development departments, including their employee number, last name, first name, and department name.
 
     SELECT dept_emp.emp_no, employees.last_name, employees.first_name, departments.dept_name
     FROM dept_emp
@@ -110,7 +110,7 @@ Employees_db_Query.sql
     JOIN departments ON dept_emp.dept_no = departments.dept_no
     WHERE departments.dept_name IN ('Sales', 'Development');
 
-- List the frequency counts of employee last names in descending order.
+List the frequency counts of employee last names in descending order.
     
     SELECT last_name, COUNT(last_name) AS frequency
     FROM employees
